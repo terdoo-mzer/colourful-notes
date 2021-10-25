@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colourful Notes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <h1 class="logo">Colourful Notes</h1>
+
+        <div class="right-menu-items">
+             <!-- Open The Modal -->
+            <button id="myBtn" type="button">How to use</button>
+
+            <!-- Theme switch -->
+            <div class="toggle-container">
+                <input type="checkbox" id="switch"/><label for="switch">Toggle</label>
+            </div>
+        </div>
+     
+    </nav>
+
+
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <ul>
+                <li>To save a note, click outside of it.</li>
+                <li>To delete a note, doubleclick or double-tap on it</li>
+            </ul>
+        </div>
+    </div>
+
+     <!-- Notes Container -->   
+    <div id="notesContainer">
+        <!-- <div class="date-container"><small class="note-date">Oct 10, 2021, 1:07 PM</small></div> -->
+        <button class="add-note" type="button">+</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&display=swap');
+
+html[data-theme='light']{  
+  --bg: #eeeeee;
+  --bg-panel: #ebebeb;
+  --shadow: 0 0 7px rgba(255, 255, 255, 0.671); 
+  --switch-color: #333333;
+  --color-header: rgb(27, 168, 14);
+  --color-text: #333333;
+}
+
+html[data-theme='dark'] {
+  --bg: #333333;
+  --bg-panel: #434343;
+  --shadow: 0 0 7px rgba(0, 0, 0, 0.15);
+  --switch-color: linear-gradient(to right, #ff105f, #ffad06);
+  --color-header: linear-gradient(to right, #ff105f, #ffad06);
+  --color-text: #B5B5B5;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    font-family: 'Noto Sans Mono', monospace;
+  }
+
+nav {
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0px 9px 10px -15px #c3a2b0; 
+
+}
+
+/* check logo color on light theme */
+nav .logo {
+  color: var(--color-header);
+  font-size: 2em;
+  text-align: center;
+}
+
+nav .right-menu-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav .right-menu-items button {
+  border: none;
+  color: var(--color-text);
+  background: var(--bg);
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
+nav .right-menu-items button:hover {
+  text-decoration: underline;
+  text-decoration-color: rgb(13, 55, 94);
+}
+
+nav .right-menu-items button:focus {
+  outline: none;
+}
+
+/* Dark and light theme */
+
+input[type=checkbox] {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+label {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 52px;
+  height: 27px;
+  background: var(--switch-color);
+  float: right;
+  border-radius: 100px;
+  position: relative;
+}
+
+label:after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border-radius: 90px;
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
+}
+
+input:checked + label {
+  background: var(--switch-color);
+}
+
+input:checked + label:after {
+  left: calc(100% - 5px);
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+}
+
+label:active:after {
+  width: 45px;
+}
+  
+#notesContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 300px);
+  padding: 24px;
+  gap: 24px;
+}
+
+/* .noteWrapper {} */
+  
+.note {
+  height: 300px;
+  box-sizing: border-box;
+  padding: 16px;
+  border: none;
+  box-shadow: var(--shadow);
+  resize: none;
+  font-family: inherit;
+  color:rgb(20, 18, 18);
+  line-height: 1.8em;
+  font-size: 16px;
+  position: relative;
+}
+
+.note:focus {
+  outline: none;
+}
+
+.note .date-container {
+  position: absolute;
+  
+}
+
+.note-date {
+  /* background-color: #000; */
+  color: var(--color-text);
+  display:inline-block;
+  width: 300px;
+  font-size: 30px;
+  z-index: 999;
+  top: .5em;
+}
+
+.add-note {
+  height: 200px;
+  border: none;
+  outline: none;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  font-size: 120px;
+  /* color: rgba(0, 0, 0, 0.5); */
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.add-note:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+  
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  /* overflow: auto; Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(70, 69, 69, 0.4); /* Black w/ opacity */
+  overflow-y: hidden;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  color: #fff;
+  background-color:  #94bbe9;
+  border: none;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  width: 20%; /* Could be more or less, depending on screen size */
+  height: 40%;
+}
+
+/* The Close Button */
+.close {
+  color: #fff;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@media (max-width: 631px) {
+  header button { 
+    font-size: 1em;
+  }
+
+  h1 {
+    font-size: 1.5em;
+  }
+}
+
+@media(max-width: 430px) {
+  header button {
+    font-size: .8em;
+  }
+
+  h1 {
+    font-size: 1em;
+  }
+}
+
+@media(max-width: 1083px) {
+  .modal-content {
+    width: 50%; /* Could be more or less, depending on screen size */
+    height: 40%;
+  }
+  
+}
