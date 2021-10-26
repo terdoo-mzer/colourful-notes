@@ -8,3 +8,7 @@
 1. Add time (date also) of creation to each note.
 2. Add user and login pages to ensure privacy of your notes. (You do not want anyone peeking through your private notes :) .
 3. If you have any recommendations to make, send me an email here mzerterdoo6@gmail.com.
+
+
+## Fixes
+1. Fix theme switch button background
