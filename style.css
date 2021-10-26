@@ -1,20 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&display=swap');
 
-html[data-theme='light']{  
+:root {
   --bg: #eeeeee;
   --bg-panel: #ebebeb;
   --shadow: 0 0 7px rgba(255, 255, 255, 0.671); 
-  --switch-color: #333333;
-  --color-header: rgb(27, 168, 14);
+  --switch-color: linear-gradient(to right, #ff105f, #ffad06);
+  --color-header: rgba(55, 29, 70, 0.521);
   --color-text: #333333;
 }
 
-html[data-theme='dark'] {
+.darkmode {
   --bg: #333333;
   --bg-panel: #434343;
   --shadow: 0 0 7px rgba(0, 0, 0, 0.15);
-  --switch-color: linear-gradient(to right, #ff105f, #ffad06);
-  --color-header: linear-gradient(to right, #ff105f, #ffad06);
+  --switch-color: #8b7777;
+  --color-header: rgb(219, 205, 205);
   --color-text: #B5B5B5;
 }
 
@@ -62,51 +62,64 @@ nav .right-menu-items button:focus {
   outline: none;
 }
 
-/* Dark and light theme */
-
-input[type=checkbox] {
-  height: 0;
-  width: 0;
-  visibility: hidden;
-}
-
-label {
-  cursor: pointer;
-  text-indent: -9999px;
-  width: 52px;
-  height: 27px;
-  background: var(--switch-color);
-  float: right;
-  border-radius: 100px;
+/*SWITCH*/
+.switch {
   position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  align-self: center;
 }
 
-label:after {
-  content: '';
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
   position: absolute;
-  top: 3px;
-  left: 3px;
-  width: 20px;
-  height: 20px;
-  background: #fff;
-  border-radius: 90px;
-  -webkit-transition: 0.1s;
-  transition: 0.1s;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
-input:checked + label {
-  background: var(--switch-color);
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
-input:checked + label:after {
-  left: calc(100% - 5px);
-  -webkit-transform: translateX(-100%);
-          transform: translateX(-100%);
+input:checked + .slider {
+  background-color: var(--switch-color);
 }
 
-label:active:after {
-  width: 45px;
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
 }
+
+/* Rounded sliders */
+.slider {
+  border-radius: 30px;
+}
+
+.slider:before {
+  border-radius: 50%;
+}
+/* End of theme switch */
   
 #notesContainer {
   display: grid;

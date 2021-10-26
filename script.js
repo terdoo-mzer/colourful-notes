@@ -123,32 +123,50 @@ window.onclick = function(event) {
   }
 }
 
-// Dark and light theme
 
-let theme = localStorage.getItem('data-theme');
-const checkbox = document.getElementById("switch");
-const changeThemeToDark = () =>{
-    document.documentElement.setAttribute("data-theme", "dark")
-    localStorage.setItem("data-theme", "dark")
-    console.log("I give you dark")
+// Theme dark and light switch 
+
+// check for saved 'darkMode' in localStorage
+let darkMode = localStorage.getItem('darkMode'); 
+
+const darkModeToggle = document.querySelector('#checkBox');
+
+const enableDarkMode = () => {
+  // Add the class to the body
+  document.body.classList.add('darkmode');
+  // Update darkMode in localStorage
+  localStorage.setItem('darkMode', 'enabled');
 }
 
-const changeThemeToLight = () =>{
-    document.documentElement.setAttribute("data-theme", "light")
-    localStorage.setItem("data-theme", 'light')
-    console.log("I give you light")
+const disableDarkMode = () => {
+  // Remove the class from the body
+  document.body.classList.remove('darkmode');
+  // Update darkMode in localStorage 
+  localStorage.setItem('darkMode', null);
+}
+ 
+// If the user already visited and enabled darkMode
+// start things off with it on
+if (darkMode === 'enabled') {
+  enableDarkMode();
 }
 
-if(theme === 'dark'){
-    changeThemeToDark()
-}
-
-checkbox.addEventListener('change', ()=> {
-    let theme = localStorage.getItem('data-theme');
-    if (theme ==='dark'){
-        changeThemeToLight()
-    }else{
-        changeThemeToDark()
-    }
-   
+// When someone clicks the button
+darkModeToggle.addEventListener('click', () => {
+  // get their darkMode setting
+  darkMode = localStorage.getItem('darkMode'); 
+  
+  // if not current enabled, enable it
+  if (darkMode !== 'enabled') {
+    enableDarkMode();
+  // if it has been enabled, turn it off  
+  } else {  
+    disableDarkMode(); 
+  }
 });
+
+
+
+
+
+
