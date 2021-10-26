@@ -226,19 +226,28 @@ input:checked + .slider:before {
     font-size: 1em;
   }
 
-  h1 {
-    font-size: 1.5em;
+  nav .logo{
+    font-size: 1.1em;
   }
 }
 
-@media(max-width: 430px) {
+@media(max-width: 486px) {
   header button {
     font-size: .8em;
   }
-
-  h1 {
-    font-size: 1em;
+  nav .logo {
+    font-size: 1em; 
   }
+
+  #myBtn {
+    font-size: .9em;
+  }
+
+  .switch {
+    width: 65px;
+    height: 30px;
+  }
+
 }
 
 @media(max-width: 1083px) {
