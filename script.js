@@ -136,6 +136,7 @@ const enableDarkMode = () => {
   document.body.classList.add('darkmode');
   // Update darkMode in localStorage
   localStorage.setItem('darkMode', 'enabled');
+  darkModeToggle.checked = true
 }
 
 const disableDarkMode = () => {
@@ -143,6 +144,7 @@ const disableDarkMode = () => {
   document.body.classList.remove('darkmode');
   // Update darkMode in localStorage 
   localStorage.setItem('darkMode', null);
+  darkModeToggle.checked = false
 }
  
 // If the user already visited and enabled darkMode
@@ -164,6 +166,22 @@ darkModeToggle.addEventListener('click', () => {
     disableDarkMode(); 
   }
 });
+
+
+// if ($('main').hasClass('dark')) {
+//   $( '#checkBox' ).prop( "checked", true )
+// } else {
+//  $( '#checkBox' ).prop( "checked", false )
+// }
+
+// document.body.classList.contains('darkmode')?  darkModeToggle.checked = true: darkModeToggle.checked = false;
+
+
+
+
+
+
+
 
 
 
